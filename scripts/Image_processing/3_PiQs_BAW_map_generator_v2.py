@@ -411,27 +411,3 @@ for run in runs:
        # matrix_BAW[k,:] = array_actW
         #BAW_report = np.append(BAW_report, np.mean(array_actW)) # Append the average active width to build up the report
 
-        if plt_show ==1:
-            # PLOTS
-            fig, ax = plt.subplots(dpi=300, tight_layout=True)
-            yData = BAW_report
-            xData = np.linspace(0,len(yData),len(yData))*dt
-            actW = ax.scatter(xData, yData, s=0.8)
-            ax.set_title(r'BAW* over time - ' + run)
-            ax.set_xlabel('Time [min]')
-            ax.set_ylabel('BAW* [-]')
-            plt.savefig(os.path.join(path_report,run +'_' + str(skip) + '_BAW_plot_report.pdf'), dpi=1000) # raster (png, jpg, rgb, tif), vector (pdf, eps), latex (pgf)
-            plt.show(block=False)
-            plt.close()
-            # time.sleep(1)
-    
-            fig, ax = plt.subplots(dpi=300, tight_layout=True)
-            yData = envBAA_report
-            xData = np.linspace(0,len(yData),len(yData))
-            actW = ax.scatter(xData, yData, s=0.8)
-            ax.set_title(r'BAW* over time - ' + run)
-            ax.set_xlabel('Time [min]')
-            ax.set_ylabel('envBAW* [-]')
-            plt.savefig(os.path.join(path_report,run + '_' + str(skip) + '_envBAW_plot_report.pdf'), dpi=1000)
-            plt.show(block=False)
-            plt.close()
